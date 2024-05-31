@@ -1,0 +1,36 @@
+def mi_agenda():
+    print("1. Buscar contacto")
+    print("2. Insertar contacto")
+    print("3. Actualizar contacto")
+    print("4. Eliminar contacto")
+    print("5. Salir")
+    
+    while True:
+        opcion = input("\nSeleccione una opcion 1 , 2 , 3 , 4 o 5: ")
+        agenda = {}
+        print(type(agenda))
+        match opcion:
+            case "1" :
+                nombre = input(f"introduce el contacto a buscar")
+                if nombre in agenda:
+                    print(f"El numero de " + nombre + " es: " + {agenda[nombre]})
+                else:
+                    print(f"El contacto llamado {nombre} no se a econtrado")
+                    
+            case "2":
+                nombre2 = input("Introduce el nombre del contacto")
+                numero = int(input(f"Intoduce el numero de {nombre2}"))
+                agenda[nombre2] = numero
+                
+            case "3" :
+                pass
+            
+            case "4" :
+                pass
+            
+            case "5" :
+                print("Saliendo de la agenda")
+                break
+            
+mi_agenda()
+
