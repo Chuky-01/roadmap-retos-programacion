@@ -1,0 +1,46 @@
+def mi_agenda():
+    print("Bienvenido a la agenda")
+    print("1. Buscar contacto\n2. Insertar contacto\n3. Actualizar contacto\n4. Eliminar contacto\n5. mostrar agenda\n6. Salir")
+    
+    agenda = {}
+    while True:
+        opcion = int(input("\nSeleccione una opcion 1 , 2 , 3 , 4 , 5 o 6: "))
+       
+        if opcion == 1:
+            contacto_a_buscar = input("Escriba el contacto a buscar: ")
+            if contacto_a_buscar in agenda:
+                print(f"el numero de {contacto_a_buscar} es {agenda[contacto_a_buscar]}")
+            else:
+                print("el contacto no esta en la agenda")
+        elif opcion == 2:
+            contacto_a_insertar = input("Esciba el nombre del contacto a insertar: ")
+            numero_de_contacto_a_insertar = str(input(f"Esciba el numero de {contacto_a_insertar}: "))
+            if len(numero_de_contacto_a_insertar) <= 11 and numero_de_contacto_a_insertar.isdigit():
+                agenda[contacto_a_insertar] = numero_de_contacto_a_insertar
+                print("Contacto Insertado Exitosamente")
+            else:
+                print("Debes escribr un numero de telefono con maximo 11 digitos")
+        elif opcion == 3:
+            contacto_a_actualizar = input("Escriba el nombre del contacto a actualizar: ")
+            if contacto_a_actualizar in agenda:
+                nuevo_numero_de_contacto_a_actualizar = int(input(f"Escriba el nuevo numero de {contacto_a_actualizar}: "))
+                agenda[contacto_a_actualizar] = nuevo_numero_de_contacto_a_actualizar
+                print("Contacto Actualizado Exitosamente")
+            else:
+                print("El contacto a actualizar no esta en la agenda")
+        elif opcion == 4:
+            contacto_a_eliminar = input("Escriba el contacto a eliminar: ")
+            if contacto_a_eliminar in agenda:
+                del agenda[contacto_a_eliminar]
+                print("Contacto Eliminado Exitosamente")
+            else:
+                print("El contacto no estaba en la agenda")
+        elif opcion == 5:
+            print(agenda)
+        elif opcion == 6:
+            print("saliendo de la agenda")
+            break
+        else:
+            print("debes elegir una de las opciones marcadas: 1, 2, 3, 4, 5 o 6")
+        
+mi_agenda()
